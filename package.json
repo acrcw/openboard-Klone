@@ -1,0 +1,26 @@
+{
+  "name": "openboard-klone",
+  "version": "1.0.0",
+  "description": "<!-- openboard -->\r ui structering > html + css \r toolbox functnalities",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acrcw/openboard-Klone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acrcw/openboard-Klone/issues"
+  },
+  "homepage": "https://github.com/acrcw/openboard-Klone#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
