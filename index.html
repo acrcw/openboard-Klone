@@ -23,7 +23,7 @@
     </div>
     <div class="pencil-tool-cont">
         <div class="pencil-width-cont">
-            <input type="range" min="2" max="10" value="3">
+            <input  id="pencil-width" type="range" min="2" max="10" value="3">
         </div>
         <div class="pencil-color-cont">
          <div class="red pencil-color"></div>   
@@ -34,19 +34,18 @@
     </div>
     <div class="eraser-tool-cont">
         <div class="eraser-width-cont">
-            <input type="range" min="2" max="10" value="3">
+            <input id="eraser-width" type="range" min="10" max="50" value="20">
         </div>
+        <div class="pencil-color-cont">
+            <div class="white eraser-color"></div>   
+            <div class="black eraser-color"></div>   
+            <div class="yellow eraser-color"></div>   
+            <div class="green eraser-color"></div>   
+           </div>
     </div>
-    <!-- <div class="sticky-cont">
-        <div class="header-cont">
-            <div class="blue close"></div>   
-            <div class="black minimize"></div>   
-        </div>
-        <div class="note-cont">
-            <textarea class="ticket-task" spellcheck="false"  cols="15" rows="100" wrap="hard"></textarea>
-        </div>
-    </div> -->
+     <canvas></canvas>
     <script src="./tools.js"></script>
+    <script src="./canvas.js"></script>
 </body>
 
 </html>

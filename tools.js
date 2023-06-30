@@ -2,6 +2,8 @@ let optionscontainer = document.querySelector(".options-cont");
 let toolscont = document.querySelector(".tools-cont");
 let penciltoolcont = document.querySelector(".pencil-tool-cont"); // display:flex
 let erasertoolcont = document.querySelector(".eraser-tool-cont"); // display:flex
+let writingcolor="black";
+let writingwidth="2";
 optionscontainer.addEventListener("click", (e) => {
     let iconele = optionscontainer.children[0];
     let classofelement = iconele.classList[iconele.classList.length - 1];
@@ -24,9 +26,12 @@ let erasertoolflag = false;
 for (let i = 0; i < toolchildren.length; i++) {
     toolchildren[i].addEventListener("click", (e) => {
         if (i == 0) { //pencil
+            writingcolor="black"
+            writingwidth="2";
             if (penciltoolflag) {
 
                 penciltoolcont.style.display = "none"
+               
             }
             else {
 
@@ -35,8 +40,10 @@ for (let i = 0; i < toolchildren.length; i++) {
             penciltoolflag = !penciltoolflag
         }
         else if (i == 1) { //eraser
+            writingcolor="white"
+            writingwidth="30";
             if (erasertoolflag) {
-
+              
                 erasertoolcont.style.display = "none"
             }
             else {
@@ -66,6 +73,9 @@ for (let i = 0; i < toolchildren.length; i++) {
        <div class="note-cont">
            <img class="ticket-task" src="${url}"></img>
        </div>`;
+       stickycont.style.position="absolute"
+       stickycont.style.top="10rem"
+    //    stickycont.style.left="100"
                 let header = stickycont.querySelector(".header-cont")
                 let close = stickycont.querySelector(".close");
                 close.addEventListener("click", e => {
@@ -108,6 +118,8 @@ for (let i = 0; i < toolchildren.length; i++) {
                 stickycont.remove();
             })
             document.body.appendChild(stickycont);
+            stickycont.style.position="absolute"
+            stickycont.style.top="10rem"
             header.onmousedown = function (event) {
                 dragthesticky(stickycont, event);
             }

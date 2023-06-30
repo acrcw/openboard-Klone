@@ -1,4 +1,6 @@
 <!-- openboard -->
 ui structering > html + css 
 toolbox functnalities
-canvas
+
+<!-- canvas -->
+html element and brower api
