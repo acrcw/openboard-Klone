@@ -3,8 +3,9 @@ const socket=require("socket.io") // return function for initialization
 
 const app=express() // initialize app and server ready
 app.use(express.static("frontend")) // to show the index.html file
-let server=app.listen(3000,()=>{ // first hit here
-    console.log("listening to port" + 3000);
+let port=process.env.PORT || 5000
+let server=app.listen(port,()=>{ // first hit here
+    console.log("listening to port" + port);
 })
 
 let io=socket(server) //connected
