@@ -51,7 +51,6 @@
         crossorigin="anonymous"></script>
     <script>
         let socket = io.connect("process.env.WEB_URL:5000/")
-
         socket.on("connect", () => {
             const transport = socket.io.engine.transport.name; // in most cases, "polling"
             console.log(transport)
