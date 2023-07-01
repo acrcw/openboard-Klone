@@ -50,7 +50,8 @@
         integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
         crossorigin="anonymous"></script>
     <script>
-        let socket = io.connect("process.env.WEB_URL:5000/")
+        let port = process.env.PORT || 5000
+        let socket = io.connect(`https://openboardklone.onrender.com:${port}`)
         socket.on("connect", () => {
             const transport = socket.io.engine.transport.name; // in most cases, "polling"
             console.log(transport)
