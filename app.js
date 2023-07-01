@@ -9,8 +9,17 @@ let server=app.listen(port,()=>{ // first hit here
 })
 
 let io=socket(server) //connected
+io.on("connection", (socket) => {
+    const transport = socket.conn.transport.name; // in most cases, "polling"
+    console.log(transport)
+    socket.conn.on("upgrade", () => {
+      const upgradedTransport = socket.conn.transport.name; // in most cases, "websocket"
+      console.log(upgradedTransport)
+    });
+  });
 io.on("connection",(socket)=>{//2hit here
     console.log("connection established successfully");
+    console.log(socket.id);
     //received data
     socket.on("beginpath",(data)=>{
         // now transfer data to all connected computers
