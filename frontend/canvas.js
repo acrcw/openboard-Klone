@@ -38,31 +38,31 @@ let tool = canvas.getContext("2d"); // get 2d tool
 // mousedown >> start new path, mousemove -> pathfill
 canvas.addEventListener("mousedown", (e) => {
 
-    tool.strokeStyle = writingcolor
-    tool.lineWidth = writingwidth
+    // tool.strokeStyle = writingcolor
+    // tool.lineWidth = writingwidth
     mousedown = true;
-    tool.beginPath();
-    tool.moveTo(e.clientX, e.clientY)
+    // tool.beginPath();
+    // tool.moveTo(e.clientX, e.clientY)
 
     //for server
-    let data = {
+    let data = JSON.stringify({
         writingclr: writingcolor,
         width: writingwidth,
         x: e.clientX,
         y: e.clientY
-    }
+    })
     socket.emit("beginpath", data) // socket comes from index.html
 })
 
 canvas.addEventListener("mousemove", (e) => {
 
     if (mousedown) {
-        let data = {
+        let data = JSON.stringify({
             writingclr: writingcolor,
             width: writingwidth,
             x: e.clientX,
             y: e.clientY
-        }
+        })
         socket.emit("drawstroke", data)
         // tool.lineTo(e.clientX + 0, e.clientY);
         // tool.stroke()
@@ -85,25 +85,25 @@ download.addEventListener("click", (e) => {
 })
 undo.addEventListener("click", (e) => {
     if (track > 0) track--;
-    let data = {
+    let data = JSON.stringify({
         trackercontainer: tracker,
         index: track
-    }
+    })
     socket.emit("redoundo", data);
     // undoredocanvas();
 })
 redo.addEventListener("click", (e) => {
     if (track < tracker.length - 1) track++;
-    let data = {
+    let data = JSON.stringify({
         trackercontainer: tracker,
         index: track
-    }
+    })
     socket.emit("redoundo", data);
     // undoredocanvas();
 })
-function undoredocanvas() {
+function undoredocanvas(obj) {
     let img = new Image(); // create image reference
-    img.src = tracker[track];
+    img.src = obj.trackercontainer[obj.index];
     img.onload = (e) => {
         tool.drawImage(img, 0, 0, canvas.width, canvas.height);
     }
@@ -125,15 +125,15 @@ function drawstroke(strokeobj) {
 // to detect repeated data
 socket.on("beginpath", (data) => {
     // data from server
-    beginpath(data);
+    beginpath(JSON.parse(data));
 })
 
 socket.on("drawstroke", (data) => {
     // data from server
-    drawstroke(data);
+    drawstroke(JSON.parse(data));
 })
 
 socket.on("undoredo", (data) => {
     // data from server
-    undoredocanvas(data);
+    undoredocanvas(JSON.parse(data));
 })

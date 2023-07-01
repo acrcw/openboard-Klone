@@ -5,31 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Openboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="options-cont"><i class="fa-solid fa-2xl fa-bars" ></i></div>
+    <div class="options-cont"><i class="fa-solid fa-2xl fa-bars"></i></div>
     <!-- <i class="fa-solid fa-x fa-2xl" style="color: #000000;"></i> -->
     <div class="tools-cont scale-tools  ">
-       <img id="pencil" src="Icons/pencil.svg">
-       <img id="eraser" src="Icons/eraser.svg">
-       <img id="download" src="Icons/download.svg">
-       <img id="upload" src="Icons/upload.svg">
-       <img id="stickynote" src="Icons/stickynote.svg">
-       <img id="redo" src="Icons/redo.svg">
-       <img id="undo" src="Icons/undo.svg">
+        <img id="pencil" src="Icons/pencil.svg">
+        <img id="eraser" src="Icons/eraser.svg">
+        <img id="download" src="Icons/download.svg">
+        <img id="upload" src="Icons/upload.svg">
+        <img id="stickynote" src="Icons/stickynote.svg">
+        <img id="redo" src="Icons/redo.svg">
+        <img id="undo" src="Icons/undo.svg">
     </div>
     <div class="pencil-tool-cont">
         <div class="pencil-width-cont">
-            <input  id="pencil-width" type="range" min="2" max="10" value="3">
+            <input id="pencil-width" type="range" min="2" max="10" value="3">
         </div>
         <div class="pencil-color-cont">
-         <div class="red pencil-color"></div>   
-         <div class="black pencil-color"></div>   
-         <div class="blue pencil-color"></div>   
-         <div class="green pencil-color"></div>   
+            <div class="red pencil-color"></div>
+            <div class="black pencil-color"></div>
+            <div class="blue pencil-color"></div>
+            <div class="green pencil-color"></div>
         </div>
     </div>
     <div class="eraser-tool-cont">
@@ -37,26 +39,29 @@
             <input id="eraser-width" type="range" min="10" max="50" value="20">
         </div>
         <div class="pencil-color-cont">
-            <div class="white eraser-color"></div>   
-            <div class="black eraser-color"></div>   
-            <div class="yellow eraser-color"></div>   
-            <div class="green eraser-color"></div>   
-           </div>
+            <div class="white eraser-color"></div>
+            <div class="black eraser-color"></div>
+            <div class="yellow eraser-color"></div>
+            <div class="green eraser-color"></div>
+        </div>
     </div>
-     <canvas></canvas>
-     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
-     <script>
-        let socket=io.connect("https://openboardklone.netlify.app/");
+    <canvas></canvas>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+    <script>
+        let socket = io.connect("https://openboardklone.netlify.app/")
+           
         socket.on("connect", () => {
-  const transport = socket.io.engine.transport.name; // in most cases, "polling"
-  console.log(transport)
+            const transport = socket.io.engine.transport.name; // in most cases, "polling"
+            console.log(transport)
 
-  socket.io.engine.on("upgrade", () => {
-    const upgradedTransport = socket.io.engine.transport.name; // in most cases, "websocket"
-    console.log(upgradedTransport)
-  });
-});
-     </script>
+            socket.io.engine.on("upgrade", () => {
+                const upgradedTransport = socket.io.engine.transport.name; // in most cases, "websocket"
+                console.log(upgradedTransport)
+            });
+        });
+    </script>
     <script src="./tools.js"></script>
     <script src="./canvas.js"></script>
 </body>
