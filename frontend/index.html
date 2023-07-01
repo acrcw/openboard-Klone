@@ -51,8 +51,8 @@
         crossorigin="anonymous"></script>
     <script>
         let port = 10000;
-        let socket = io.connect(`wss://openboardklone.onrender.com:${port}`, {
-            transports: ['websocket'],
+        let socket = io.connect(`https://openboardklone.onrender.com/:${port}`, {
+            // transports: ['websocket'],
             upgrade: false,
             forceNew: true
         })
