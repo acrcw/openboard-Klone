@@ -51,7 +51,11 @@
         crossorigin="anonymous"></script>
     <script>
         let port = 10000;
-        let socket = io.connect(`https://openboardklone.onrender.com:${port}`)
+        let socket = io.connect(`ws://openboardklone.onrender.com:${port}`, {
+            transports: ['websocket'],
+            upgrade: false,
+            forceNew: true
+        })
         socket.on("connect", () => {
             const transport = socket.io.engine.transport.name; // in most cases, "polling"
             console.log(transport)

@@ -11,6 +11,7 @@ console.log(process.env.WEB_URL)
 
 
 const io = new socket.Server(server, { cors: { origin: '*' , methods: ["GET", "POST"],} });
+// io.set("transports", ['websocket'])
 io.on("connection", (socket) => {//2hit here
     console.log("connection established successfully");
     console.log(socket.id);
