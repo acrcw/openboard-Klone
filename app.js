@@ -1,7 +1,7 @@
 const express = require("express") // return fnc for acess
 const socket = require("socket.io") // return function for initialization
 const app = express() // initialize app and server ready
-let port = process.env.PORT || 5000
+let port = process.env.PORT || 10000
 const server = app.listen(port);
 app.use(express.static("frontend")) // to show the index.html file
 
