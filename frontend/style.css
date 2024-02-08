@@ -35,6 +35,7 @@ body {
     z-index: 100;
     /* background-color: #44bd32; */
     justify-content: space-evenly;
+    width: 100vw;
 }
 .scale-tools
 {
