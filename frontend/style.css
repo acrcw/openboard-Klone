@@ -12,7 +12,7 @@ body {
     height: 2rem;
     width: 2rem;
     /* background-color: lightblue; */
-    position: absolute;
+    position: fixed;
     top: 1rem;
     left: 2rem;
     display: flex;
@@ -28,7 +28,7 @@ body {
 .tools-cont {
     margin-top: 1rem;
     display:none;
-    position: absolute;
+    position: fixed;
     flex-direction: row;
     height:2.5rem;
     left:9rem;
