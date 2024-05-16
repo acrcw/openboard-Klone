@@ -3,7 +3,7 @@ const socket = require("socket.io") // return function for initialization
 const app = express() // initialize app and server ready
 let port = process.env.PORT || 10000
 const server = app.listen(port);
-app.use(express.static("frontend")) // to show the index.html file
+app.use(express.static("public")) // to show the index.html file
 
 console.log(port)
 console.log(process.env.WEB_URL)
